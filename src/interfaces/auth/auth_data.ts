@@ -1,5 +1,4 @@
 export type AuthData = {
-  token: string;
-  email: string;
-  name: string;
+	accessToken: string;
+	refreshToken: string;
 };

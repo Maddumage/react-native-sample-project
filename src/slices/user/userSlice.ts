@@ -1,39 +1,39 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type User = {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
+	_id: string;
+	first_name: string;
+	last_name: string;
+	email: string;
+	password: string;
 };
 
 interface UserState {
-  user: any;
-  isLoading: boolean;
+	user: User | undefined;
+	isLoading: boolean;
 }
 
 const initialState = {
-  user: null,
-  isLoading: false,
+	user: undefined,
+	isLoading: false,
 } as UserState;
 
 const userSlice = createSlice({
-  name: 'user',
-  initialState,
-  reducers: {
-    getUserProfile(state, action: PayloadAction<{ userId: string }>) {
-      state.isLoading = true;
-      state.user = undefined;
-    },
-    getUserProfileSuccess(state, action: PayloadAction<User>) {
-      state.isLoading = false;
-      state.user = action.payload;
-    },
-    getUserProfileFailed(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-    },
-  },
+	name: 'user',
+	initialState,
+	reducers: {
+		getUserProfile(state, action: PayloadAction) {
+			state.isLoading = true;
+			state.user = undefined;
+		},
+		getUserProfileSuccess(state, action: PayloadAction<User>) {
+			state.isLoading = false;
+			state.user = action.payload;
+		},
+		getUserProfileFailed(state, action: PayloadAction<string>) {
+			state.isLoading = false;
+		},
+	},
 });
 
 // Action creators are generated for each case reducer function
