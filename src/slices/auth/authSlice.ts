@@ -3,49 +3,53 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 
 export type CurrentUser = {
-  id: string;
-  name: string;
+	id: string;
+	name: string;
 };
 
 export interface LoginPayload {
-  username: string;
-  password: string;
+	username: string;
+	password: string;
 }
 
 export interface AuthState {
-  isLoggedIn: boolean;
-  isLoading?: boolean;
-  currentUser?: CurrentUser;
+	isLoggedIn: boolean;
+	isLoading?: boolean;
+	currentUser?: CurrentUser;
 }
 
 const initialState: AuthState = {
-  isLoggedIn: false,
-  isLoading: false,
-  currentUser: undefined,
+	isLoggedIn: false,
+	isLoading: false,
+	currentUser: undefined,
 };
 
 const authSlice = createSlice({
-  name: 'auth',
-  initialState,
-  reducers: {
-    login(state, action: PayloadAction<LoginPayload>) {
-      state.isLoading = true;
-      state.currentUser = undefined;
-      state.isLoggedIn = false;
-    },
-    loginSuccess(state, action: PayloadAction<CurrentUser>) {
-      state.isLoggedIn = true;
-      state.isLoading = false;
-      state.currentUser = action.payload;
-    },
-    loginFailed(state, action: PayloadAction<string>) {
-      state.isLoading = false;
-    },
-    logout(state) {
-      state.isLoggedIn = false;
-      state.currentUser = undefined;
-    },
-  },
+	name: 'auth',
+	initialState,
+	reducers: {
+		login(state, action: PayloadAction<LoginPayload>) {
+			state.isLoading = true;
+			state.currentUser = undefined;
+			state.isLoggedIn = false;
+		},
+		loginSuccess(state, action: PayloadAction<CurrentUser>) {
+			state.isLoggedIn = true;
+			state.isLoading = false;
+			state.currentUser = action.payload;
+		},
+		loginFailed(state, action: PayloadAction<string>) {
+			state.isLoading = false;
+		},
+		logout(state, action: PayloadAction<{ refreshToken: string }>) {
+			state.isLoggedIn = false;
+			state.currentUser = undefined;
+		},
+    refreshToken(state, action: PayloadAction<{ refreshToken: string }>) {
+			state.isLoggedIn = false;
+			state.currentUser = undefined;
+		},
+	},
 });
 
 // Actions

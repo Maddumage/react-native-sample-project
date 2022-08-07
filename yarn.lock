@@ -4559,6 +4559,11 @@ jetifier@^1.6.2:
   resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.8.tgz#e88068697875cbda98c32472902c4d3756247798"
   integrity sha512-3Zi16h6L5tXDRQJTb221cnRoVG9/9OvreLdLU2/ZjRv/GILL+2Cemt0IKvkowwkDpvouAU1DQPOJ7qaiHeIdrw==
 
+joi-password-complexity@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/joi-password-complexity/-/joi-password-complexity-5.1.0.tgz#7506d3adce429d52c1331910f20fd5f571c273d1"
+  integrity sha512-2F/cPybttJGuyVmZ8X/yihemshhAuFt4fHGlz8CFNP7R8PzH90K8OeNzY9RrdADM6uu3D2xTXej/odvRjdkqaw==
+
 joi@^17.2.1:
   version "17.6.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.0.tgz#0bb54f2f006c09a96e75ce687957bd04290054b2"
@@ -4707,6 +4712,11 @@ jsonfile@^4.0.0:
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.2"
+
+jwt-decode@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-3.1.2.tgz#3fb319f3675a2df0c2895c8f5e9fa4b67b04ed59"
+  integrity sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==
 
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
