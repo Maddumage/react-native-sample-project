@@ -1,18 +1,9 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import {
-	AboutScreen,
-	ForgotPasswordScreen,
-	HelpScreen,
-	HomeScreen,
-	LoginScreen,
-	ProfileScreen,
-	SplashScreen,
-} from '../screens';
-import { useAuth } from '../contexts';
 
-const Stack = createNativeStackNavigator();
+import { SplashScreen } from '../screens';
+import { useAuth } from '../contexts';
+import RootStackNavigator from './root_stack';
 
 const Routes = () => {
 	const { authData, loading } = useAuth();
@@ -24,50 +15,7 @@ const Routes = () => {
 
 	return (
 		<NavigationContainer>
-			<Stack.Navigator>
-				{authData && authData.accessToken ? (
-					<>
-						<Stack.Screen
-							name='Home'
-							component={HomeScreen}
-						/>
-						<Stack.Screen
-							name='Profile'
-							component={
-								ProfileScreen
-							}
-						/>
-					</>
-				) : (
-					<>
-						<Stack.Screen
-							name='Login'
-							component={LoginScreen}
-						/>
-						<Stack.Screen
-							name='Fogot Password'
-							component={
-								ForgotPasswordScreen
-							}
-						/>
-					</>
-				)}
-				<Stack.Group
-					navigationKey={
-						authData && authData.accessToken
-							? 'user'
-							: 'guest'
-					}>
-					<Stack.Screen
-						name='Help'
-						component={HelpScreen}
-					/>
-					<Stack.Screen
-						name='About'
-						component={AboutScreen}
-					/>
-				</Stack.Group>
-			</Stack.Navigator>
+			<RootStackNavigator />
 		</NavigationContainer>
 	);
 };

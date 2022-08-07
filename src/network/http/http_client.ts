@@ -37,14 +37,12 @@ const httpClient = axios.create({
 	],
 });
 
-httpClient.defaults.headers.common[
-	'Authorization'
-] = `Bearer ${getAuthToken()}`;
-
 // Add a request interceptor
 httpClient.interceptors.request.use(
-	function (config: AxiosRequestConfig) {
+	async function (config: AxiosRequestConfig) {
 		// Do something before request is sent
+		const token = await getAuthToken();
+		config.headers = { Authorization: `Bearer ${token}` };
 		return AxiosLogger.requestLogger(config, { headers: true });
 	},
 	function (error: AxiosError) {

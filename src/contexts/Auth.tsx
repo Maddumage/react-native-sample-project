@@ -120,11 +120,11 @@ const AuthProvider: React.FC<any> = ({ children }) => {
 	 * @description - handle logout
 	 * @param {string} refreshToken
 	 */
-	const signOut = async (refreshToken: string) => {
+	const signOut = async () => {
 		try {
 			//call the service passing refreshToken (refreshToken).
 			const _logoutResponse = await authService.auth.logout({
-				refreshToken,
+				refreshToken: authData?.refreshToken,
 			});
 			if (_logoutResponse) {
 				//Remove data from context, so the App can be notified

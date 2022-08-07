@@ -17,7 +17,7 @@ export default {
 				}
 			});
 		},
-		logout: (params: { refreshToken: string }): Promise<any> => {
+		logout: (params: { refreshToken?: string }): Promise<any> => {
 			return new Promise<any>(async (resolve, reject) => {
 				try {
 					const { data, status } =

@@ -5,5 +5,5 @@ export type AuthContextData = {
 	authData?: AuthData;
 	loading: boolean;
 	signIn(params: LoginPayload): Promise<void>;
-	signOut(refreshToken: string): void;
+	signOut(): void;
 };

@@ -1,17 +1,16 @@
 import { HttpClient } from '../../network';
-import { LoginPayload } from '../../slices';
 
 export default {
 	user: {
-		getProfile: (params: LoginPayload): Promise<any> => {
+		getProfile: (params: any): Promise<any> => {
 			return new Promise<any>(async (resolve, reject) => {
 				try {
 					const { data, status } =
-						await HttpClient.post(
+						await HttpClient.get(
 							'/user/profile',
-							params
+							{}
 						);
-					resolve({ data, status });
+					resolve({ data: data.results, status });
 				} catch (error) {
 					reject(error);
 				}
