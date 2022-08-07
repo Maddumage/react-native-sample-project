@@ -72,7 +72,7 @@ const AuthProvider: React.FC<any> = ({ children }) => {
 			dispatch(
 				commonActions.showError({
 					message: error?.message ?? error,
-					title: 'Failed to load the daya, Please relogin',
+					title: 'Failed to load the data, Please relogin',
 				})
 			);
 		} finally {
@@ -99,7 +99,7 @@ const AuthProvider: React.FC<any> = ({ children }) => {
 				//to be recovered in the next user session.
 				await EncryptedStorage.setItem(
 					'@AuthData',
-					_authData.data
+					JSON.stringify(_authData.data)
 				);
 			}
 		} catch (error: any) {
