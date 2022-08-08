@@ -10,7 +10,7 @@ Redux Toolkit, Redux Saga, Axios, React Navigation etc.
 Clone the project
 
 ```bash
-  git clone react-native-sample-project
+  git clone git@github.com:Maddumage/react-native-sample-project.git
 ```
 
 Go to the project directory
