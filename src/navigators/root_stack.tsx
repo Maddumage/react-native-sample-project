@@ -19,6 +19,9 @@ const RootStackNavigator = () => {
 			) : (
 				<RootStack.Screen
 					name='Auth'
+					options={{
+						headerShown: false,
+					}}
 					component={AuthStackNavigator}
 				/>
 			)}

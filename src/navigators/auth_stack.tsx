@@ -9,10 +9,16 @@ const AuthStackNavigator = () => {
 		<AuthStack.Navigator>
 			<AuthStack.Screen
 				name='Login'
+				options={{
+					headerShown: false,
+				}}
 				component={LoginScreen}
 			/>
 			<AuthStack.Screen
 				name='ForgotPassword'
+				options={{
+					headerShown: false,
+				}}
 				component={ForgotPasswordScreen}
 			/>
 		</AuthStack.Navigator>

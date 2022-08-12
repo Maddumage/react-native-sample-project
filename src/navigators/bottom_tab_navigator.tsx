@@ -36,7 +36,7 @@ const BottomTabs = () => {
 				name='Profile'
 				component={ProfileScreen}
 				options={{
-					tabBarLabel: 'Home',
+					tabBarLabel: 'Profile',
 					tabBarIcon: ({ color }) => (
 						<MaterialCommunityIcons
 							name='account'

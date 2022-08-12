@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { FlatButton } from '../../components';
 import { useAuth } from '../../contexts';
 import { userActions } from '../../slices';
 import { RootState, useAppDispatch } from '../../store';
@@ -35,19 +36,19 @@ const ProfileScreen = (props: any) => {
 					<Text>{user.email}</Text>
 				</>
 			)}
-			<Button
+			<FlatButton
 				title='Go to Home'
 				onPress={() => {
 					navigation.navigate('Home');
 				}}
 			/>
-			<Button
+			<FlatButton
 				title='Go Back'
 				onPress={() => {
 					navigation.goBack();
 				}}
 			/>
-			<Button
+			<FlatButton
 				title='Help'
 				onPress={() => {
 					navigation.navigate('Common', {
@@ -55,14 +56,18 @@ const ProfileScreen = (props: any) => {
 					});
 				}}
 			/>
-			<Button
+			<FlatButton
 				title='About'
 				onPress={() => {
 					navigation.navigate('Common');
 				}}
 			/>
-
-			<Button title='Logout' onPress={() => signOut()} />
+			<FlatButton
+				title='Logout'
+				onPress={() => {
+					signOut();
+				}}
+			/>
 		</View>
 	);
 };
