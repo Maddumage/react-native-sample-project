@@ -2,6 +2,12 @@ import { AuthData } from './../../interfaces/auth/auth_data';
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import * as AxiosLogger from 'axios-logger';
+import { Platform } from 'react-native';
+
+const BASE_URL =
+	Platform.OS === 'ios'
+		? 'http://localhost:4001/api/v1'
+		: 'http://192.168.8.1:4001/api/v1';
 
 const getAuthToken = async (): Promise<string> => {
 	try {
@@ -18,7 +24,7 @@ const getAuthToken = async (): Promise<string> => {
 
 // configure axios instance
 const httpClient = axios.create({
-	baseURL: `http://localhost:4001/api/v1`,
+	baseURL: BASE_URL,
 	timeout: 5000,
 	headers: {
 		Accept: 'application/json',

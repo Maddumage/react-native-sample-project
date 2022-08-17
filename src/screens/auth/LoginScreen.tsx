@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-	Button,
-	StyleSheet,
-	TextInput,
-	View,
-	SafeAreaView,
-	Text,
-	Pressable,
-} from 'react-native';
+import { StyleSheet, TextInput, View, SafeAreaView, Text } from 'react-native';
 import { Formik } from 'formik';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { useAuth } from '../../contexts';
@@ -15,7 +7,6 @@ import { FlatButton } from '../../components';
 
 const LoginScreen = ({ navigation }: { navigation: any }) => {
 	const { loading, signIn } = useAuth();
-	console.log('loading => ', loading);
 
 	const onSubmit = (values: any) => {
 		signIn(values);
