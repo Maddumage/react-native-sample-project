@@ -3,10 +3,11 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import EncryptedStorage from 'react-native-encrypted-storage';
 import * as AxiosLogger from 'axios-logger';
 import { Platform } from 'react-native';
+import Config from 'react-native-config';
 
 const BASE_URL =
 	Platform.OS === 'ios'
-		? 'http://localhost:4001/api/v1'
+		? `${Config.API_URL}/${Config.API_VERSION}`
 		: 'http://192.168.8.1:4001/api/v1';
 
 const getAuthToken = async (): Promise<string> => {

@@ -7,7 +7,7 @@ import { AuthProvider } from './contexts';
 import { store } from './store';
 import { GlobalAlert } from './components';
 
-const App = () => {
+const App: React.FC = () => {
 	return (
 		<Provider store={store}>
 			<AuthProvider>

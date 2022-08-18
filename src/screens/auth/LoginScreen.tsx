@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, TextInput, View, SafeAreaView, Text } from 'react-native';
 import { Formik } from 'formik';
 import Spinner from 'react-native-loading-spinner-overlay';
+import Config from 'react-native-config';
+
 import { useAuth } from '../../contexts';
 import { FlatButton } from '../../components';
 
@@ -81,6 +83,10 @@ const LoginScreen = ({ navigation }: { navigation: any }) => {
 							}}
 							title='Forgot Password'
 						/>
+						<Text>
+							API URL :{' '}
+							{Config.API_URL}
+						</Text>
 					</View>
 				)}
 			</Formik>
