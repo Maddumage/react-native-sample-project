@@ -30,6 +30,7 @@
 		BD1C22B828A039C800884EA1 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1C22A828A039C800884EA1 /* EvilIcons.ttf */; };
 		BD1C22B928A039C800884EA1 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1C22A928A039C800884EA1 /* SimpleLineIcons.ttf */; };
 		BD1C22BA28A039C800884EA1 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD1C22AA28A039C800884EA1 /* MaterialIcons.ttf */; };
+		BD5A7CEB28B29BA70058B3E0 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = BD5A7CEA28B29BA70058B3E0 /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		BD1C22A828A039C800884EA1 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
 		BD1C22A928A039C800884EA1 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		BD1C22AA28A039C800884EA1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		BD5A7CEA28B29BA70058B3E0 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -149,6 +151,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				BD5A7CEA28B29BA70058B3E0 /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* SampleProject */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* SampleProjectTests */,
@@ -313,6 +316,7 @@
 				BD1C22B828A039C800884EA1 /* EvilIcons.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				BD1C22AF28A039C800884EA1 /* FontAwesome5_Brands.ttf in Resources */,
+				BD5A7CEB28B29BA70058B3E0 /* Config.xcconfig in Resources */,
 				BD1C22B428A039C800884EA1 /* FontAwesome5_Solid.ttf in Resources */,
 				BD1C22B928A039C800884EA1 /* SimpleLineIcons.ttf in Resources */,
 				BD1C22BA28A039C800884EA1 /* MaterialIcons.ttf in Resources */,
@@ -608,6 +612,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD5A7CEA28B29BA70058B3E0 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -680,6 +685,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD5A7CEA28B29BA70058B3E0 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

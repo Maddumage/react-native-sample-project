@@ -8,6 +8,9 @@ production = ENV["PRODUCTION"] == "1"
 
 target 'SampleProject' do
   config = use_native_modules!
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+  # For extensions without React dependencies
+  pod 'react-native-config/Extension', :path => '../node_modules/react-native-config'
 
   # Flags change depending on the env values.
   flags = get_default_flags()
@@ -28,8 +31,17 @@ target 'SampleProject' do
     # Pods for testing
   end
 
+  ENVFILES = {
+    'Debug' => '$(PODS_ROOT)/../../.env.development',
+    'Release' => '$(PODS_ROOT)/../../.env.production',
+  }
   post_install do |installer|
-    react_native_post_install(installer)
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        if target.name == 'react-native-config'
+          config.build_settings['ENVFILE'] = ENVFILES[config.name]
+        end
+      end
+    end
   end
 end

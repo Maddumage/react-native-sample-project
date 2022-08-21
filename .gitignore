@@ -62,3 +62,5 @@ buck-out/
 /ios/Pods/
 /vendor/bundle/
 yarn.lock
+# react-native-config codegen
+ios/tmp.xcconfig

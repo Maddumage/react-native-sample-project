@@ -1,4 +1,18 @@
 apply plugin: "com.android.application"
+project.ext.envConfigFiles = [
+   productiondebug: ".env.production",
+   productionrelease: ".env.production",
+   developmentrelease: ".env.development",
+   developmentdebug: ".env.development",
+   stagingrelease: ".env.staging",
+   stagingdebug: ".env.staging"
+]
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
+
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 
 import com.android.build.OutputFile
 import groovy.json.JsonSlurper
@@ -143,8 +157,7 @@ def getVersionFromNpm() {
 }
 
 // Convert version name to a version number
-def getNumericVersionFromNpm() {
-
+def getVersionCode(){
     def versionName =  getVersionFromNpm()
     def parts = versionName.split("\\.")
 
@@ -153,11 +166,12 @@ def getNumericVersionFromNpm() {
     int minor = parts[1] as int
     int major = parts[0] as int
 
-    def numericVersion =  major*100000 + minor*1000 + hotfix
-    println('Version Code: ' + numericVersion)
+    def versionCode =  major*100000 + minor*1000 + hotfix
+    println('Version Code: ' + versionCode)
 
-    return numericVersion
+    return versionCode
 }
+
 android {
     ndkVersion rootProject.ext.ndkVersion
 
@@ -167,9 +181,10 @@ android {
         applicationId "com.sampleproject"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode getNumericVersionFromNpm()
+        versionCode getVersionCode()
         versionName getVersionFromNpm()
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        resValue "string", "build_config_package", "com.sampleproject"
 
         if (isNewArchitectureEnabled()) {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
@@ -258,6 +273,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            matchingFallbacks = ['debug', 'release']
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -268,6 +284,14 @@ android {
         }
     }
 
+    flavorDimensions "default"
+    productFlavors {
+        production {}
+        staging {
+         // We can have build-specific configurations here. Like using applicationIdSuffix to create different package name (ex. ".staging")
+        }
+        development {}
+    }
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
